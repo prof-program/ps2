@@ -21,10 +21,10 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
+		if (!argv)
+			exit (1);
 		argc = ft_countarg(argv);
 	}
-	if (!argv)
-		exit (1);
 	ft_checkup(argc, argv);
 	stacka = ft_fill_stack(argc, argv);
 	ft_sort_small(&stacka, argc);
@@ -37,9 +37,6 @@ int	main(int argc, char **argv)
 	}
 	stacka = ft_move_to_first(stacka);
 	ft_free_list(stacka);
-	if (argv[0][0] == '!')
-				ft_free_argv(argv);
-	free (argv);
 }
 
 // giving each number the value pos for the position in stacka

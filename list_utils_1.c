@@ -41,17 +41,27 @@ t_list	*ft_fill_stack(int argc, char **argv)
 
 	stack = ft_newlst(ft_atoi(argv[1]));
 	if (!stack)
+	{
+		if (argv[0][0] == '!')
+			ft_free_argv(argv);
 		exit(0);
+	}
 	i = 2;
 	while (i < argc)
 	{
 		stack = ft_addlst_bottom(stack, ft_atoi(argv[i]));
 		if (!stack)
+		{
+			if (argv[0][0] == '!')
+				ft_free_argv(argv);
 			exit(1);
+		}
 		i++;
 		if (i == argc)
 			stack->next->prev = stack;
 	}
+	if (argv[0][0] == '!')
+		ft_free_argv(argv);
 	return (stack->next);
 }
 

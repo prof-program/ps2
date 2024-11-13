@@ -30,6 +30,8 @@ int	ft_arg_error(int argc, char **argv)
 		{
 			if (argv[j][i] < '0' || argv[j][i] > '9')
 			{
+				if (argv[0][0] == '!')
+					ft_free_argv(argv);
 				write(2, "Error\n", 6);
 				exit(1);
 			}
@@ -63,6 +65,8 @@ int	ft_dub_error(char **argv)
 		}
 		if (isdub > 1)
 		{
+			if (argv[0][0] == '!')
+				ft_free_argv(argv);
 			write(2, "Error\n", 6);
 			exit(1);
 		}
@@ -89,6 +93,8 @@ int	ft_is_sorted(char **argv)
 			return (1);
 		i++;
 	}
+	if (argv[0][0] == '!')
+		ft_free_argv(argv);
 	exit(0);
 }
 
@@ -103,6 +109,8 @@ int	ft_overflow_error(char **argv)
 	{
 		if ((long)ft_atoi(argv[i]) != ft_atol(argv[i]))
 		{
+			if (argv[0][0] == '!')
+				ft_free_argv(argv);
 			write(2, "Error\n", 6);
 			exit(1);
 		}

@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SOURCES = error_utils.c list_utils_1.c list_utils_2.c \
 operations.c push_swap.c sort_utils_1.c sort_utils_2.c \
-utils.c
+utils_1.c utils_2.c ft_split.c
 OBJECTS = $(SOURCES:.c=.o)
 
 all: $(NAME)
